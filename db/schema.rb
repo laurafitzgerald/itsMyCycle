@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151111123327) do
 
+
   create_table "bikes", force: :cascade do |t|
     t.string   "model"
     t.string   "make"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 20151111123327) do
     t.string   "purchased_from"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+
     t.integer  "user_id"
   end
 
@@ -48,7 +50,7 @@ ActiveRecord::Schema.define(version: 20151111123327) do
     t.string   "remember_digest"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "workout_cycles", force: :cascade do |t|
     t.string   "bike_id"
