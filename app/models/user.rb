@@ -2,7 +2,12 @@ class User < ActiveRecord::Base
   
  attr_accessor :remember_token
 
- has_many :microposts
+ 
+ has_many :workout_cycles
+ has_many :workout_runs
+
+ has_many :runners
+ has_many :bikes
 
  before_save {self.email = email.downcase}
 
