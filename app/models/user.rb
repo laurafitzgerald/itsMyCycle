@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   
 
+ 
+ has_many :workout_cycles
+ has_many :workout_runs
+
 
  attr_accessor :remember_token
 
