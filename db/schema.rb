@@ -11,14 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105123915) do
+ActiveRecord::Schema.define(version: 20151110171247) do
 
-  create_table "microposts", force: :cascade do |t|
-    t.text     "content"
+  create_table "bikes", force: :cascade do |t|
+    t.string   "model"
+    t.string   "make"
+    t.string   "type"
+    t.decimal  "frame_size"
+    t.string   "color"
+    t.string   "serial_number"
+    t.string   "purchased_from"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "user_id"
+  end
+
+  add_index "bikes", ["user_id"], name: "index_bikes_on_user_id"
+
+  create_table "runners", force: :cascade do |t|
+    t.string   "nickname"
+    t.string   "brand"
+    t.string   "make"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "runners", ["user_id"], name: "index_runners_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

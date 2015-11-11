@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  make: MyString
+  type: 
+  frame_size: 
+  color: MyString
+  serial_number: MyString
+  purchased_from: MyString
+
+two:
+  model: MyString
+  make: MyString
+  type: 
+  frame_size: 
+  color: MyString
+  serial_number: MyString
+  purchased_from: MyString
