@@ -1,3 +1,4 @@
-class Workout::Run < Workout
-	belongs_to :workout
+class Run < Workout
+
+	belongs_to :user
 end
