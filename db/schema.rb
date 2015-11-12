@@ -13,6 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20151111123327) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bikes", force: :cascade do |t|
     t.string   "model"
@@ -24,11 +26,10 @@ ActiveRecord::Schema.define(version: 20151111123327) do
     t.string   "purchased_from"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-
     t.integer  "user_id"
   end
 
-  add_index "bikes", ["user_id"], name: "index_bikes_on_user_id"
+  add_index "bikes", ["user_id"], name: "index_bikes_on_user_id", using: :btree
 
   create_table "runners", force: :cascade do |t|
     t.string   "nickname"
@@ -39,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151111123327) do
     t.integer  "user_id"
   end
 
-  add_index "runners", ["user_id"], name: "index_runners_on_user_id"
+  add_index "runners", ["user_id"], name: "index_runners_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -74,4 +75,6 @@ ActiveRecord::Schema.define(version: 20151111123327) do
     t.string   "type"
   end
 
+  add_foreign_key "bikes", "users"
+  add_foreign_key "runners", "users"
 end
