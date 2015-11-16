@@ -53,4 +53,7 @@ class User < ActiveRecord::Base
    update_attribute(:remember_digest, nil)
 
  end
+
+ def feed
+ 	Workouts.where("user_id = ?", id)
 end
