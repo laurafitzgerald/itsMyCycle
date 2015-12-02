@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   
 
- 
- has_many :workout_cycles
- has_many :workout_runs
+ has_many :workouts, dependent: :destroy
+ #has_many :cycles, dependent: :destroy
+ #has_many :runs, dependent: :destroy
 
 
  attr_accessor :remember_token
@@ -55,5 +55,6 @@ class User < ActiveRecord::Base
  end
 
  def feed
- 	Workouts.where("user_id = ?", id)
+ 	Workout.where("user_id = ?", id)
+ end
 end

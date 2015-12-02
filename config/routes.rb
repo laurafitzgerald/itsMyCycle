@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
 
-
-  resources :microposts
+  resources :runs
+  resources :cycles
+  resources :workouts
   resources :users
   root 'static_pages#home'
  
