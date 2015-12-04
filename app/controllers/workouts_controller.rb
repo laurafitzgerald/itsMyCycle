@@ -1,5 +1,8 @@
-class WorkoutssController < ApplicationController
+class WorkoutsController < ApplicationController
  
+   before_action :logged_in_user, only: [:create, :destroy]
+
+
   def index
   	@workouts = Workout.all
   end
@@ -13,18 +16,19 @@ class WorkoutssController < ApplicationController
   end
 
   def create
-  	@workout = Workouts.new(workout_params)
-
-    respond_to do |format|
-      if @workout.save
-        format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render :show, status: :created, location: @workout }
-      else
-        format.html { render :new }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
-      end
+  	secure_post = params.require(:workout).permit(:hours)
+    @workout = current_user.workouts.build(secure_post)
+    if @workout.save
+      flash[:success] = "Workout Created"
+      redirect_to root_url
+    else
+      render 'static_pages/home'
     end
    
+  end
+
+  def destroy
+
   end
 
 

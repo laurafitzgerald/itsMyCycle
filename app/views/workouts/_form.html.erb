@@ -1,0 +1,39 @@
+
+<%= form_for(@workouts) do |f| %>
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this micropost from being saved:</h2>
+
+      <ul>
+      <% @workout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" >
+	<%= f.label :type  %><br>
+	<%= f.select(:type, options_for_select([["Run", "Run"],["Cycle", "Cycle"]])) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.text_area :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :hours %><br>
+    <%= f.number_field :hours %>
+  </div>
+    <div class="field">
+    <%= f.label :mins %><br>
+    <%= f.number_field :mins %>
+  </div>
+    <div class="field">
+    <%= f.label :secs %><br>
+    <%= f.number_field :secs %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
