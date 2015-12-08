@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-
+ mount_uploader :avatar, AvatarUploader
  has_many :workouts, dependent: :destroy
  #has_many :cycles, dependent: :destroy
  #has_many :runs, dependent: :destroy
