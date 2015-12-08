@@ -1,8 +1,9 @@
 
 <li id="workout-<%workout.id%>">
 		     
+		     <hr>
                 <h2>
-                      By <%= link_to workout.user.name, root_url %>
+                      By <%= link_to workout.user.name, users_path %>
                 </h2>
                 <p class="lead">
                     Distance:  <%= workout.distance %> KM
@@ -20,11 +21,8 @@
 
                 <p><span class="glyphicon glyphicon-time"></span> Workout Completed on 
                 	<%= workout.created_at %><p>
-                <hr>
+              
                 <img class="img-responsive" src="<%= asset_path('maps1.png') %>" alt="">
-                <hr>
            
-                <a class="btn btn-primary" href="#">See More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
+           
 	</li>

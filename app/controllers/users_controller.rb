@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @workouts = @user.workouts
+    @workouts = @user.workouts.order("created_at DESC")
   end
 
   def create
@@ -21,5 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    search = User.search params[:name]
+    @users = search.results
+    render 'index'
+
+  end
   
 end
