@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
  
-   before_action :logged_in_user, only: [:create, :destroy]
-
+   #before_action :logged_in_user, only: [:create, :destroy]
+   
 
   def index
   	@workouts = Workout.all
@@ -17,12 +17,15 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-  	secure_post = params.require(:workout).permit(:hours)
-    @workout = current_user.workouts.build(secure_post)
+
+
+  	#secure_post = params.require(:workout).permit(:hours)
+    @workout = current_user.workouts.build(workout_params)
     if @workout.save
       flash[:success] = "Workout Created"
       redirect_to root_url
     else
+      @feed_items=[]
       render 'static_pages/home'
     end
    
@@ -32,6 +35,9 @@ class WorkoutsController < ApplicationController
 
   end
 
+ def workout_params
+    params.require(:workout).permit( :distance, :hours, :mins, :secs)
 
+end
   
 end

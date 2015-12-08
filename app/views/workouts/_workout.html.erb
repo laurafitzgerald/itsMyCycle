@@ -1,0 +1,30 @@
+
+<li id="workout-<%workout.id%>">
+		     
+                <h2>
+                      By <%= link_to workout.user.name, root_url %>
+                </h2>
+                <p class="lead">
+                    Distance:  <%= workout.distance %> KM
+                </p>
+                <p class="lead">
+                    Duration:  <%= '%02d' % number_with_precision(workout.hours, :precision => 0) %> : <%= '%02d' % number_with_precision(workout.mins, :precision =>0) %> :  <%= '%02d' %number_with_precision(workout.secs, :precision =>0) %>
+                </p>
+
+                	<%= 
+                  	 %>
+                  <p class="lead">
+                  
+                    Speed:  <%= "%.2f" % BigDecimal(workout.distance/(totalTime = workout.hours + (workout.mins/60) + (workout.secs)/120)).truncate(2)%> KM/HR
+                </p>
+
+                <p><span class="glyphicon glyphicon-time"></span> Workout Completed on 
+                	<%= workout.created_at %><p>
+                <hr>
+                <img class="img-responsive" src="<%= asset_path('maps1.png') %>" alt="">
+                <hr>
+           
+                <a class="btn btn-primary" href="#">See More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+	</li>

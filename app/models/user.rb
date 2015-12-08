@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
 
  attr_accessor :remember_token
 
+
+#has_many :workouts
+#has_many :runs
+#has_many :cycles
  has_many :runners, dependent: :destroy
  has_many :bikes, dependent: :destroy 
  
