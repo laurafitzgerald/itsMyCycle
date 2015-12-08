@@ -33,12 +33,20 @@ $gray-medium-light: #eaeaea;
 body{
 
 	padding-top: 60px;
+	background-color: #ae95a5;
+	background-image:url(/assets/background.jpg);
+
 }
 
+.container{
+	
+	background_color:#ae95a5;
 
+}
 section {
 
 	overflow: auto;
+
 
 }
 
@@ -50,6 +58,7 @@ textarea{
 
 .center{
 	text-align: center;
+
 
 }
 
@@ -85,6 +94,12 @@ p{
 }
 
 /* header */
+header{
+	
+
+background-color: #fbfbfb
+
+}
 
 #logo{
 	float:left;
@@ -207,4 +222,26 @@ input {
 	.form-control{
 		color: $state-danger-text;
 	}
+}
+
+
+.field input {
+  width:50px;
+}
+
+.field select{
+	width:100px;
+
+}
+.actions input{
+	
+	width:100px;
+}
+
+.new_workout{
+	
+	padding: 20px;
+	background-color: #fbfbfb
+
+
 }
