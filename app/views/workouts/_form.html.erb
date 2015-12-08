@@ -14,7 +14,7 @@
 
   <div class="field" >
 	<%= f.label :type  %><br>
-	<%= f.select(:type, options_for_select([["Run", "Run"],["Cycle", "Cycle"]])) %>
+	<%= f.select(:type, options_for_select([["Run", "Run"],["Cycle", "Cycle"]]), :prompt => "Choose...") %>
 
   </div>
   <div class="field">

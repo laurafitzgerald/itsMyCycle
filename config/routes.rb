@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :workouts
   resources :users
   root 'static_pages#home'
+
+  get 'workout' => 'workouts#new'
  
   get 'help'	=> 'static_pages#help'
   get 'about' 	=> 'static_pages#about'

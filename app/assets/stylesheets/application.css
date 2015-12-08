@@ -29,6 +29,8 @@ $gray-medium-light: #eaeaea;
 
 
 /* universal */
+html, body { background: #343434; }
+
 
 body{
 
@@ -38,11 +40,7 @@ body{
 */
 }
 
-container{
-	
-	background-color: #ae95a5;
 
-}
 
 section {
 
@@ -66,6 +64,7 @@ textarea{
 
 .center h1{
 	margin-bottom:10px;
+
 }
 
 
@@ -73,6 +72,7 @@ textarea{
 
 h1, h2, h3, h4, h5, h6{
 	line-height: 1;
+	color:#fff;
 
 }
 
@@ -91,6 +91,7 @@ h1{
 p{
 	font-size: 1.1em;
 	line-height: 1.7em;
+		color:#fff;
 
 }
 
